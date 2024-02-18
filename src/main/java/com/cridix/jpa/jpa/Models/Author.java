@@ -2,6 +2,8 @@ package com.cridix.jpa.jpa.Models;
 
 import java.time.LocalDateTime;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,12 +11,17 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
+
 // @Table(name = "AUTHOR_TBL")
 
 public class Author {
@@ -37,6 +44,7 @@ public class Author {
     private int age;
 
     @Column(updatable = false, nullable = false)
+    @CreationTimestamp
     private LocalDateTime createdAt;
 
     @Column(insertable = false)
