@@ -11,6 +11,7 @@ import jakarta.persistence.Entity;
 
 // import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.NamedQuery;
 import lombok.AllArgsConstructor;
 
 import lombok.Data;
@@ -24,6 +25,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @SuperBuilder
 @Entity
+@NamedQuery(name = "Author.findByNamedQuery", query = "select a from Author a where a.age >= :age")
 
 // @Table(name = "AUTHOR_TBL")
 
