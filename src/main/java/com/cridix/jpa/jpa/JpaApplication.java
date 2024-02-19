@@ -36,6 +36,18 @@ public class JpaApplication {
 			// .length(5)
 			// .build();
 			// videoRepository.save(video);
+
+			// update author with ID = 1
+			var author = Author.builder()
+					.id(1)
+					.firstname("cridix")
+					.lastname("doe")
+					.age(24)
+					.email("contact@topmail.com")
+					.build();
+
+			// repository.updateAuthor(22, 1);
+			repository.updateAllAuthorsAge(99);
 		};
 	}
 
