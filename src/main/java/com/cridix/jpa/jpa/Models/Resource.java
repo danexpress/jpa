@@ -1,6 +1,6 @@
 package com.cridix.jpa.jpa.Models;
 
-import jakarta.persistence.DiscriminatorColumn;
+// import jakarta.persistence.DiscriminatorColumn;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -19,8 +19,8 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @SuperBuilder
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "resource_type")
+@Inheritance(strategy = InheritanceType.JOINED)
+// @DiscriminatorColumn(name = "resource_type")
 public class Resource {
 
     @Id

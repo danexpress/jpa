@@ -6,7 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import com.cridix.jpa.jpa.Models.Author;
+import com.cridix.jpa.jpa.Models.Video;
 import com.cridix.jpa.jpa.repositories.AuthorRepository;
+import com.cridix.jpa.jpa.repositories.VideoRepository;
 
 @SpringBootApplication
 public class JpaApplication {
@@ -16,15 +18,20 @@ public class JpaApplication {
 	}
 
 	// @Bean
-	CommandLineRunner commandLineRunner(AuthorRepository repository) {
+	CommandLineRunner commandLineRunner(AuthorRepository repository, VideoRepository videoRepository) {
 		return args -> {
-			var author = Author.builder()
-					.firstname("Fred")
-					.lastname("champ")
-					.age(30)
-					.email("contact@mail.com")
+			// var author = Author.builder()
+			// .firstname("Fred")
+			// .lastname("champ")
+			// .age(30)
+			// .email("contact@mail.com")
+			// .build();
+			// repository.save(author);
+			var video = Video.builder()
+					.name("abc")
+					.length(5)
 					.build();
-			repository.save(author);
+			videoRepository.save(video);
 		};
 	}
 

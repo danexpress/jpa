@@ -1,6 +1,6 @@
 package com.cridix.jpa.jpa.Models;
 
-import jakarta.persistence.DiscriminatorValue;
+// import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,7 +14,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @SuperBuilder
 @Entity
-@DiscriminatorValue("F")
+// @DiscriminatorValue("F")
 public class File extends Resource {
     private String type;
 
