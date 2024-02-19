@@ -1,37 +1,40 @@
 package com.cridix.jpa.jpa.Models;
 
-import java.time.LocalDateTime;
+// import java.time.LocalDateTime;
 import java.util.List;
 
-import org.hibernate.annotations.CreationTimestamp;
+// import org.hibernate.annotations.CreationTimestamp;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
+// import jakarta.persistence.GeneratedValue;
 
-import jakarta.persistence.Id;
+// import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
+
+@EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@SuperBuilder
 @Entity
 
 // @Table(name = "AUTHOR_TBL")
 
-public class Author {
+public class Author extends BaseEntity {
 
-    @Id
-    @GeneratedValue
+    // @Id
+    // @GeneratedValue
     // (strategy = GenerationType.SEQUENCE, generator = "author_sequence")
     // @SequenceGenerator(name = "author_sequence", sequenceName =
     // "author_sequence", allocationSize = 1)
-    private Integer id;
+    // private Integer id;
 
     @Column(name = "f_name")
     private String firstname;
@@ -43,12 +46,12 @@ public class Author {
 
     private int age;
 
-    @Column(updatable = false, nullable = false)
-    @CreationTimestamp
-    private LocalDateTime createdAt;
+    // @Column(updatable = false, nullable = false)
+    // @CreationTimestamp
+    // private LocalDateTime createdAt;
 
-    @Column(insertable = false)
-    private LocalDateTime lastModified;
+    // @Column(insertable = false)
+    // private LocalDateTime lastModified;
 
     @ManyToMany(mappedBy = "authors")
     private List<Course> courses;
