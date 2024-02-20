@@ -4,11 +4,13 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.jpa.domain.Specification;
 
 import com.cridix.jpa.jpa.Models.Author;
 import com.cridix.jpa.jpa.Models.Video;
 import com.cridix.jpa.jpa.repositories.AuthorRepository;
 import com.cridix.jpa.jpa.repositories.VideoRepository;
+import com.cridix.jpa.jpa.specification.AuthorSpecification;
 import com.github.javafaker.Faker;
 
 @SpringBootApplication
@@ -51,6 +53,11 @@ public class JpaApplication {
 			// repository.updateAllAuthorsAge(99);
 			// repository.findByNamedQuery(60)
 			// .forEach(System.out::println);
+
+			Specification<Author> spec = Specification
+					.where(AuthorSpecification.hasAge(99))
+					.and(AuthorSpecification.firstnameLike("i"));
+			repository.findAll(spec).forEach(System.out::println);
 		};
 	}
 
